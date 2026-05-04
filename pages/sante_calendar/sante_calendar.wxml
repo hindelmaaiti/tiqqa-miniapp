@@ -1,0 +1,73 @@
+<view class="container">
+  <!-- Brand Header -->
+  <view class="header-bg">
+    <view class="header-content">
+      <view class="back-btn" bindtap="onBack">
+        <text class="back-arrow">←</text>
+      </view>
+      <image class="logo" src="../../assets/logo-tiqqa-header.png" mode="aspectFit"></image>
+      <view class="profile-slot">
+        <image class="avatar" src="../../assets/avatar/avatar-user.png" mode="aspectFill"></image>
+        <view class="msg-bubble">
+          <image class="bubble-icon" src="../../assets/icons/icon-message.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Main Content Card -->
+  <view class="content-card">
+    <scroll-view class="card-scroll" scroll-y="true">
+      <view class="page-title-wrap">
+        <text class="page-title">Choisissez une date pour votre visite chez vous</text>
+      </view>
+
+      <view class="hero-image-wrap">
+        <image src="/assets/infirmier.png" class="hero-image" mode="aspectFit"></image>
+      </view>
+
+      <!-- Calendar Widget -->
+      <view class="calendar-widget">
+        <view class="calendar-header">
+          <view class="month-nav" bindtap="changeMonth" data-dir="-1">
+            <text class="nav-arrow">‹</text>
+          </view>
+          <view class="month-display">
+            <text class="month-text">{{currentMonthLabel}}</text>
+            <text class="year-text">{{currentYear}}</text>
+          </view>
+          <view class="month-nav" bindtap="changeMonth" data-dir="1">
+            <text class="nav-arrow">›</text>
+          </view>
+        </view>
+
+        <view class="weekdays">
+          <text wx:for="{{weeks}}" wx:key="index" class="weekday">{{item}}</text>
+        </view>
+
+        <view class="days-grid">
+          <block wx:for="{{calendarDays}}" wx:key="index">
+            <view class="day-cell-wrap">
+              <view wx:if="{{item}}" 
+                class="day-cell {{item === selectedDay ? 'selected' : ''}} {{item < todayDay && isCurrentMonth ? 'disabled' : ''}}" 
+                bindtap="selectDay" 
+                data-day="{{item}}">
+                <text class="day-num">{{item}}</text>
+              </view>
+              <view wx:else class="day-empty"></view>
+            </view>
+          </block>
+        </view>
+      </view>
+
+      <view class="action-footer">
+        <button class="btn-valider" bindtap="onNext">Suivant</button>
+      </view>
+
+      <view class="bottom-spacer"></view>
+    </scroll-view>
+  </view>
+
+  <!-- Navigation Footer -->
+  <bottom-nav-bar variant="fixed" message-count="6" bind:navtap="onNavTap" />
+</view>

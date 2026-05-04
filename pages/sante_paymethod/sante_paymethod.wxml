@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="shell">
+    <view class="header">
+      <view class="back-btn" bindtap="onBack">
+        <view class="back-icon-wrap">
+          <text class="arrow-text">←</text>
+        </view>
+        <text class="back-text">Retour</text>
+      </view>
+      <image src="/assets/logtiqqa.png" class="logo" mode="aspectFit"></image>
+      <view class="header-right" bindtap="onNext">
+        <view class="profile-bubble">
+          <image class="profile-img" src="/assets/profile.png"/>
+          <view class="speech-tail"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="content-area">
+      <view class="recap-card">
+        <text class="card-title">Récapitulatif de votre RDV</text>
+
+        <view class="field">
+          <text class="label">Date</text>
+          <text class="value">{{date}}</text>
+        </view>
+
+        <view class="field">
+          <text class="label">Heure</text>
+          <text class="value">{{slot}}</text>
+        </view>
+
+        <view class="field">
+          <text class="label">Lieu</text>
+          <text class="value">{{address}}</text>
+        </view>
+
+        <view class="field">
+          <text class="label">Tarif de la consultation</text>
+          <text class="value">{{tarif}}</text>
+        </view>
+
+        <view class="field no-margin">
+          <text class="label">Temps restant pour le paiement</text>
+          <text class="value">{{remaining}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="doctor-wrap">
+      <image src="/assets/infirmier.png" class="doctor-image" mode="aspectFit"></image>
+    </view>
+
+    <button class="confirm-btn" bindtap="onConfirm">Confirmez le Rendez-vous</button>
+
+    <bottom-nav-bar variant="fixed" message-count="6" bind:navtap="onNavTap" />
+  </view>
+</view>

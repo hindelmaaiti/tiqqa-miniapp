@@ -1,0 +1,9 @@
+{
+  "pages": [
+    "pages/password/password",
+    "pages/recovery/recovery",
+    "pages/signup/signup",
+    "pages/success/success",
+    "pages/verify/verify"
+  ]
+}

@@ -1,0 +1,96 @@
+<view class="container">
+  <view class="shell">
+    <!-- Header (shared style with carte) -->
+    <view class="header">
+      <view class="back-btn" bindtap="onBack">
+        <view class="back-icon-wrap">
+          <text class="arrow-text">←</text>
+        </view>
+        <text class="back-text">Retour</text>
+      </view>
+      <image src="/assets/logtiqqa.png" class="logo" mode="aspectFit"></image>
+      <view class="profile-container">
+        <image src="/assets/profile.png" class="profile-img"></image>
+      </view>
+    </view>
+
+    <!-- Banner (shared style with carte) -->
+    <view class="banner-area">
+      <view class="banner-top-bar"></view>
+      <view class="banner-section">
+        <image src="/assets/banner1.png" class="banner-img" mode="aspectFill"></image>
+        <view class="banner-content">
+          <text class="banner-title">PRÉSERVEZ VOTRE CAPITAL SANTÉ</text>
+          <view class="btn-acceder">ACCÉDER</view>
+        </view>
+      </view>
+      <view class="banner-nav-bar">
+        <view class="nav-arrow-wrapper" bindtap="onPrev">
+          <text class="arrow-text">←</text>
+        </view>
+        <view class="nav-arrow-wrapper" bindtap="onNext">
+          <text class="arrow-text">→</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- Main Payment Container -->
+    <view class="payment-wrapper">
+      <view class="payment-card">
+        
+        <view class="payment-title">Mode de paiement</view>
+        <view class="divider"></view>
+        
+        <view class="method-box">
+          <image src="/assets/Tashilate.png" class="method-icon" mode="aspectFit" wx:if="{{paymentMethod.toLowerCase() === 'tashilat' || paymentMethod === 'Tashilate'}}"></image>
+          <image src="/assets/Tashilate.png" class="method-icon" mode="aspectFit" wx:else></image>
+          <text class="method-name">{{paymentMethod}}</text>
+        </view>
+
+        <view class="detail-title">Détail de paiement</view>
+
+        <view class="detail-row">
+          <text class="label">Numéro de carte : </text>
+          <text class="value">{{cardNumber}}</text>
+        </view>
+
+        <view class="detail-row">
+          <text class="label">Date d'expiration : </text>
+          <text class="value">{{expDate}}</text>
+        </view>
+
+        <view class="detail-row">
+          <text class="label">CVC : </text>
+          <text class="value">{{cvc}}</text>
+        </view>
+
+        <view class="detail-row">
+          <text class="label">Adresse facturation : </text>
+          <text class="value">{{billingAddress}}</text>
+        </view>
+
+        <view class="cgu-row" bindtap="toggleCGU">
+          <view class="checkbox {{acceptedCGU ? 'checked' : ''}}">
+             <view class="checkmark" wx:if="{{acceptedCGU}}"></view>
+          </view>
+          <text class="cgu-text">Confirmer l'acceptation de CGU</text>
+        </view>
+
+        <button class="btn-confirm" bindtap="onConfirmPayment">CONFIRMEZ</button>
+
+      </view>
+    </view>
+
+    <!-- Modal d'alerte -->
+    <view class="modal-overlay" wx:if="{{showModal}}">
+      <view class="modal-content">
+        <text class="modal-text">Rendez-vous dans l'agence Tasshilat la plus proche avec votre code de paiement pour finaliser la réservation. Veuillez vous y présenter muni(e) de ce code XXXX</text>
+        <view class="modal-close" bindtap="closeModal">
+          <text class="close-icon">✕</text>
+        </view>
+      </view>
+    </view>
+
+    <bottom-nav-bar variant="fixed" message-count="6" bind:navtap="onNavTap" />
+  </view>
+</view>

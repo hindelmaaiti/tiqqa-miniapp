@@ -1,0 +1,60 @@
+<view class="login-page">
+  <device-status-bar fillStatusBar="{{true}}" />
+  <!-- Header with logo -->
+  <view class="login-header">
+    <image class="login-logo" src="/assets/logo-tiqqa-header.png" mode="widthFix" />
+  </view>
+
+  <!-- White content card -->
+  <view class="login-card">
+    <view class="login-title-wrap">
+      <text class="login-title">Bienvenue</text>
+      <text class="login-subtitle">Connectez-vous pour continuer</text>
+    </view>
+
+    <view class="login-field">
+      <text class="login-label">Téléphone</text>
+      <view class="login-input-container">
+        <input
+          class="login-input"
+          type="number"
+          placeholder="06XXXXXXXX"
+          placeholder-class="login-placeholder"
+          value="{{phone}}"
+          bindinput="onPhoneInput"
+        />
+      </view>
+    </view>
+
+    <view class="login-field">
+      <text class="login-label">Mot de Passe</text>
+      <view class="login-input-container">
+        <input
+          class="login-input"
+          type="{{showPassword ? 'text' : 'password'}}"
+          placeholder="••••••••"
+          placeholder-class="login-placeholder"
+          value="{{password}}"
+          bindinput="onPasswordInput"
+        />
+        <view class="login-eye" bindtap="togglePassword">
+          <text class="login-eye-icon">{{showPassword ? 'Masquer' : 'Afficher'}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="login-forgot-wrap">
+      <text class="login-forgot" bindtap="onForgotPassword">Mot de passe oublié ?</text>
+    </view>
+
+    <view class="login-actions">
+      <button class="login-btn login-btn--primary" bindtap="onLogin">Se connecter</button>
+      <view class="login-signup-wrap">
+        <text class="login-no-account">Pas de compte ? </text>
+        <text class="login-signup-link" bindtap="onSignUp">S'inscrire</text>
+      </view>
+    </view>
+  </view>
+  <!-- Home indicator bar -->
+  <view class="home-indicator"></view>
+</view>

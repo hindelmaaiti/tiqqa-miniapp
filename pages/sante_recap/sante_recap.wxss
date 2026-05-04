@@ -1,0 +1,52 @@
+.container {
+  min-height: 100vh;
+  background: #f4f5f4;
+}
+
+.header {
+  background: #ffffff;
+  padding: 26rpx 28rpx;
+}
+
+.back-btn {
+  display: inline-flex;
+}
+
+.back-text {
+  font-size: 30rpx;
+  color: #000;
+  font-weight: 700;
+}
+
+.content {
+  padding: 34rpx 28rpx;
+}
+
+.title {
+  display: block;
+  color: #1f6d45;
+  font-size: 42rpx;
+  font-weight: 800;
+  margin-bottom: 12rpx;
+}
+
+.desc {
+  display: block;
+  font-size: 28rpx;
+  color: #4d4d4d;
+  line-height: 1.4;
+  margin-bottom: 28rpx;
+}
+
+.cta-btn {
+  width: 100%;
+  height: 84rpx;
+  border-radius: 44rpx;
+  background: #70b682;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

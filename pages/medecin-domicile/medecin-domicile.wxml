@@ -1,0 +1,67 @@
+<view class="page-domicile">
+  <view class="mobile-card mobile-card--figma">
+    <view class="domicile-header-white">
+      <view class="domicile-top-wrap">
+        <view class="status-row">
+          <device-status-bar fillStatusBar="{{true}}" edgePadding="{{false}}" />
+        </view>
+        <view class="top-bar">
+        <view class="back-wrap" bindtap="onBack">
+          <view class="back-circle">←</view>
+          <text class="back-text">Retour</text>
+        </view>
+        <image class="logo" src="/assets/logo/logo-tiqqa.png" mode="aspectFit"></image>
+        <view class="avatar-bubble avatar-bubble--lower">
+          <view class="avatar-wrap avatar-wrap--bubble">
+            <image class="avatar" src="/assets/avatar/avatar-user.png" mode="aspectFill"></image>
+          </view>
+          <view class="avatar-bubble-tail"></view>
+        </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="doctor-hero doctor-hero--mint">
+      <image
+        class="doctor-image doctor-image--figma"
+        src="/assets/services/service-home-doctor.png"
+        mode="aspectFit"
+      ></image>
+      <view class="doctor-copy doctor-copy--figma">
+        <text class="hero-instruction">Choisissez une date</text>
+        <text class="hero-instruction">pour la visite du médecin chez vous</text>
+      </view>
+    </view>
+
+    <view class="calendar-block calendar-block--figma">
+      <view class="month-head">
+        <view class="month-arrow" bindtap="onPrevMonth">←</view>
+        <text class="month-line">{{monthLabel}} {{yearLabel}}</text>
+        <view class="month-arrow" bindtap="onNextMonth">→</view>
+      </view>
+
+      <view class="week-row">
+        <text wx:for="{{weekdays}}" wx:key="*this" class="week-txt">{{item}}</text>
+      </view>
+
+      <view class="days-grid">
+        <view
+          wx:for="{{days}}"
+          wx:key="index"
+          class="day-cell {{item.empty ? 'day-empty' : ''}} {{item.muted ? 'day-muted' : ''}} {{item.selected ? 'day-selected' : ''}}"
+          data-day="{{item.value}}"
+          bindtap="onSelectDay"
+        >
+          <view wx:if="{{item.dot}}" class="day-dot"></view>
+          <text>{{item.value}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="cta-area">
+      <view class="cta-btn" bindtap="onNextStep">Suivant</view>
+    </view>
+
+    <bottom-nav-bar variant="in-card" message-count="6" bind:navtap="onNavTap" />
+  </view>
+</view>

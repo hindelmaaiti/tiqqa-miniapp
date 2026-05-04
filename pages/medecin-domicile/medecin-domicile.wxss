@@ -1,0 +1,440 @@
+/* Remplit l’écran : évite la bande noire sous la carte (app.wxss page { height: 100% }) */
+page {
+  height: 100%;
+  background: #1d1f23;
+}
+
+.page-domicile {
+  height: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 16rpx 0 calc(20rpx + env(safe-area-inset-bottom));
+  background: #1d1f23;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/*
+ * Figma 390×844 → rpx × (750/390)
+ * Header blanc : 101 px | Menthe : 402×211, #C1E2CB | Photo médecin : 138×171 @ top 141 left 32 (frame 390)
+ * Calendrier : 402×293, top 312, left -6
+ */
+.mobile-card {
+  margin: 0 auto;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #ffffff;
+  box-shadow: 0 12rpx 48rpx rgba(0, 0, 0, 0.22);
+}
+
+.mobile-card--figma {
+  width: 750rpx;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: 57.6923076923rpx;
+  /* 844 px Figma */
+  min-height: 1619.2307692308rpx;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Bandeau blanc : statut + Retour / logo tiqqa / avatar (maquette) */
+.domicile-header-white {
+  flex-shrink: 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: 0;
+  overflow: visible;
+}
+
+.domicile-top-wrap {
+  flex-shrink: 0;
+  background: #ffffff;
+  min-height: 0;
+  height: auto;
+  padding-top: 0;
+  padding-bottom: 4rpx;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  padding: 0 34rpx 8rpx;
+  box-sizing: border-box;
+  background: #ffffff;
+  min-height: 0;
+  height: auto;
+}
+
+.top-bar {
+  position: relative;
+  width: 100%;
+  height: 92.3076923077rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22rpx 0 20rpx;
+  box-sizing: border-box;
+  background: #ffffff;
+  overflow: visible;
+}
+
+.avatar-bubble--lower {
+  margin-top: 0;
+}
+
+.back-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.back-circle {
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+  background: #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 20rpx;
+}
+
+.back-text {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #181818;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 0;
+  width: 138rpx;
+  height: 54rpx;
+}
+
+.avatar-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.avatar-wrap {
+  width: 86rpx;
+  height: 86rpx;
+  border-radius: 43rpx;
+  border: 4rpx solid #f2f2f2;
+  background: #fff;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.12);
+}
+
+.avatar-wrap--bubble {
+  border: 5rpx solid #ffffff;
+  box-shadow: 0 4rpx 14rpx rgba(0, 0, 0, 0.12);
+}
+
+.avatar-bubble-tail {
+  width: 0;
+  height: 0;
+  border-left: 14rpx solid transparent;
+  border-right: 14rpx solid transparent;
+  border-top: 18rpx solid #ffffff;
+  margin-top: -8rpx;
+  filter: drop-shadow(0 4rpx 4rpx rgba(0, 0, 0, 0.06));
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.doctor-hero {
+  flex-shrink: 0;
+  min-height: 280rpx;
+  background: #b8dacc;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16rpx 20rpx 24rpx;
+  box-sizing: border-box;
+}
+
+/* 402×211 px, left -6, #C1E2CB — header Figma 101 px au-dessus */
+.doctor-hero.doctor-hero--mint {
+  position: relative;
+  width: 773.0769230769rpx;
+  height: 405.7692307692rpx;
+  margin-left: -11.5384615385rpx;
+  flex-shrink: 0;
+  min-height: 0;
+  background: #c1e2cb;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 138×171 px ; top 141 & left 32 depuis le frame → dans la bande : top 40 px, left 38 px depuis bord gauche menthe (-6) */
+.doctor-image.doctor-image--figma {
+  position: absolute;
+  left: 73.0769230769rpx;
+  top: 76.9230769231rpx;
+  width: 265.3846153846rpx;
+  height: 328.8461538462rpx;
+  display: block;
+  opacity: 1;
+}
+
+/*
+ * Texte Figma : 217×24 px cadre, top 189 left 161 (frame 390) ; typo 10/17, letter-spacing 1, justify, #000
+ * Dans la menthe (top frame 101) : top 88 px, left depuis bord menthe 161-(-6)=167 px
+ */
+.doctor-copy.doctor-copy--figma {
+  position: absolute;
+  left: 321.1538461538rpx;
+  top: 169.2307692308rpx;
+  width: 417.3076923077rpx;
+  min-height: 46.1538461538rpx;
+  padding: 0;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+.doctor-copy--figma .hero-instruction {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 19.2307692308rpx;
+  line-height: 32.6923076923rpx;
+  letter-spacing: 1.9230769231rpx;
+  color: #000000;
+  text-align: right;
+  opacity: 1;
+}
+
+.doctor-image {
+  width: 248rpx;
+  height: 252rpx;
+  flex-shrink: 0;
+}
+
+.doctor-copy {
+  flex: 1;
+  min-width: 0;
+  max-width: 400rpx;
+  padding-bottom: 48rpx;
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+
+.hero-instruction {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  letter-spacing: 0.5rpx;
+  color: #0d1f16;
+  text-align: left;
+}
+
+.calendar-block {
+  flex-shrink: 0;
+  background: #70b682;
+  padding: 24rpx 28rpx 28rpx;
+  box-sizing: border-box;
+}
+
+.calendar-block--figma {
+  width: 773.0769230769rpx;
+  height: 563.4615384615rpx;
+  margin-left: -11.5384615385rpx;
+  margin-top: -2rpx;
+  padding: 22rpx 22rpx 16rpx;
+  background: #70b682;
+  border-radius: 28rpx 28rpx 0 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.month-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rpx;
+  flex-shrink: 0;
+}
+
+.month-line {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+  line-height: 1.2;
+}
+
+.month-arrow {
+  width: 42rpx;
+  height: 42rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.95);
+  color: #5c6f62;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+
+.week-row {
+  margin-top: 14rpx;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2rpx;
+  padding-bottom: 8rpx;
+  border-bottom: 2rpx solid rgba(255, 255, 255, 0.75);
+  flex-shrink: 0;
+}
+
+.week-txt {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 20rpx;
+  font-weight: 500;
+}
+
+.days-grid {
+  margin-top: 10rpx;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6rpx 2rpx;
+  align-content: start;
+}
+
+.calendar-block--figma .day-cell {
+  height: 48rpx;
+  font-size: 30rpx;
+}
+
+.day-cell {
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 36rpx;
+  font-weight: 600;
+  position: relative;
+}
+
+.day-empty {
+  color: transparent;
+}
+
+.day-muted {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.day-selected text {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 14rpx;
+  background: #1f4d33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.calendar-block--figma .day-selected text {
+  width: 44rpx;
+  height: 44rpx;
+  font-size: 26rpx;
+}
+
+.day-dot {
+  position: absolute;
+  top: -6rpx;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #e32424;
+}
+
+/* Écart sous le calendrier ; bouton un peu plus bas */
+.cta-area {
+  flex: 1;
+  min-height: 80rpx;
+  background: #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40rpx 40rpx 12rpx;
+}
+
+/* Figma Default : 316×58 px, radius 40, #70B682 → rpx × (750/390) */
+.cta-btn {
+  width: 607.6923076923rpx;
+  max-width: 100%;
+  margin-top: 12rpx;
+  height: 111.5384615385rpx;
+  box-sizing: border-box;
+  background: #70b682;
+  border-radius: 76.9230769231rpx;
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+/* Barre du bas : même carte, coins bas = carte (comme la maquette) */
+.bottom-nav.bottom-nav--in-card {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0 0 48rpx 48rpx;
+  align-self: stretch;
+  border-top: none;
+  box-shadow: none;
+}
+
+.mobile-card--figma .bottom-nav.bottom-nav--in-card {
+  border-radius: 0 0 57.6923076923rpx 57.6923076923rpx;
+}

@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="header">
+    <view class="header-left" bindtap="onPrev">
+      <view class="back-circle">
+        <text class="arrow-text">←</text>
+      </view>
+      <text class="back-text">Retour</text>
+    </view>
+    <view class="header-right" bindtap="onNext">
+      <view class="back-circle">
+        <text class="arrow-text">→</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="content">
+    <text class="title">{{title}}</text>
+    <text class="desc">Cette page a ete restauree pour corriger le chargement.</text>
+
+    <button class="cta-btn" bindtap="onGoPaymethod">
+      Aller au paiement
+    </button>
+  </view>
+  <bottom-nav-bar variant="fixed" message-count="6" bind:navtap="onNavTap" />
+</view>

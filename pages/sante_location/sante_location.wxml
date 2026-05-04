@@ -1,0 +1,61 @@
+<view class="container">
+  <view class="shell">
+    <view class="header">
+      <view class="back-btn" bindtap="onBack">
+        <view class="back-icon-wrap">
+          <text class="arrow-text">←</text>
+        </view>
+        <text class="back-text">Retour</text>
+      </view>
+      <image src="/assets/logtiqqa.png" class="logo" mode="aspectFit"></image>
+      <view class="profile-bubble">
+        <image class="profile-img" src="/assets/profile.png"/>
+        <view class="speech-tail"></view>
+      </view>
+    </view>
+
+    <view class="hero-title">
+      <text>Confirmez votre lieu de rendez-vous</text>
+    </view>
+    
+    <view class="map-main-area">
+      <view class="location-box">
+        <view class="location-left">
+          <text class="location-label">Lieu</text>
+          <input
+            class="location-input"
+            placeholder="350 B....."
+            placeholder-class="location-placeholder"
+            value="{{address}}"
+            bindinput="onAddressInput"
+          />
+        </view>
+        <text class="arrow-text" bindtap="onNext">✎</text>
+      </view>
+
+      <view class="map-container">
+        <map
+          longitude="{{longitude}}"
+          latitude="{{latitude}}"
+          scale="14"
+          show-location
+          markers="{{markers}}"
+          style="width: 100%; height: 320rpx;"
+        ></map>
+      </view>
+    </view>
+
+    <view class="bottom-divider-band"></view>
+
+    <view class="doctor-area">
+      <image src="/assets/infirmier.png" class="doctor" mode="aspectFit"></image>
+    </view>
+
+    <view class="actions">
+      <button class="btn next" bindtap="onFinalConfirm">Suivant</button>
+      <button class="btn location" bindtap="onLocate">Activer La Localisation</button>
+    </view>
+
+    <bottom-nav-bar variant="fixed" message-count="6" bind:navtap="onNavTap" />
+  </view>
+</view>

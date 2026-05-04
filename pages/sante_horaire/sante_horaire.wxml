@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="shell">
+    <view class="header">
+      <view class="back-btn" bindtap="onBack">
+        <view class="back-icon-wrap">
+          <text class="arrow-text">←</text>
+        </view>
+        <text class="back-text">Retour</text>
+      </view>
+      <image src="/assets/logtiqqa.png" class="logo" mode="aspectFit"></image>
+      <view class="profile-container">
+        <image src="/assets/profile.png" class="profile-img"></image>
+      </view>
+    </view>
+
+    <view class="hero">
+      <view class="hero-inner">
+        <view class="hero-text">
+          <text class="hero-title">Maintenant que vous avez choisi la date,</text>
+          <text class="hero-title">sélectionnez l’horaire</text>
+        </view>
+        <image src="/assets/infirmier.png" class="hero-doctor" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <view class="content">
+      <view class="time-card">
+        <view class="time-rail">
+          <view class="time-rail-dot" style="top: {{40 + selectedIndex * 102}}rpx;"></view>
+        </view>
+
+        <scroll-view
+          class="time-scroll"
+          scroll-y="true"
+          show-scrollbar="{{false}}"
+          enhanced="true"
+          bounces="true"
+          scroll-into-view="{{scrollIntoView}}"
+        >
+          <view class="time-list">
+            <view
+              id="slot-{{index}}"
+              class="time-row {{selectedIndex === index ? 'time-row-active' : ''}}"
+              wx:for="{{slots}}"
+              wx:key="label"
+              data-index="{{index}}"
+              bindtap="onSelectSlot"
+            >
+              <view class="time-pill">
+                <text class="time-text-left">{{item.start}}</text>
+                <text class="time-separator">-</text>
+                <text class="time-text-right">{{item.end}}</text>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+
+      <button class="btn next" bindtap="onNext">Suivant</button>
+    </view>
+
+    <bottom-nav-bar variant="fixed" message-count="6" bind:navtap="onNavTap" />
+  </view>
+</view>

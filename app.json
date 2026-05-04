@@ -1,0 +1,57 @@
+{
+  "entryPagePath": "pages/urgence-retour/urgence-retour",
+  "pages": [
+    "pages/home/home",
+    "pages/index/index", 
+    "pages/profile/profile",
+    "pages/login/login",
+    "pages/signup/signup",
+    "pages/verify/verify",
+    "pages/password/password",
+    "pages/recovery/recovery",
+    "pages/success/success",
+    "pages/logs/logs",
+    "pages/sante/sante",
+    "pages/sante_calendar/sante_calendar",
+    "pages/sante_horaire/sante_horaire",
+    "pages/sante_location/sante_location",
+    "pages/sante_recap/sante_recap",
+    "pages/sante_paymethod/sante_paymethod",
+    "pages/sante_carte/sante_carte",
+    "pages/sante_paiement_detail/sante_paiement_detail",
+    "pages/sante_rdv_status/sante_rdv_status",
+    "pages/medecin-horaire/medecin-horaire",
+    "pages/medecin-lieu/medecin-lieu",
+    "pages/medecin-recap/medecin-recap",
+    "pages/medecin-paiement/medecin-paiement",
+    "pages/medecin-paiement-detail/medecin-paiement-detail",
+    "pages/medecin-paiement-statut/medecin-paiement-statut",
+    "pages/medecin-rdv-annule/medecin-rdv-annule",
+    "pages/medecin-paiement-effectue/medecin-paiement-effectue",
+    "pages/urgence/urgence",
+    "pages/urgence-confirm/urgence-confirm",
+    "pages/urgence-cancel/urgence-cancel",
+    "pages/urgence-tracking/urgence-tracking",
+    "pages/urgence-success/urgence-success",
+    "pages/urgence-paiement/urgence-paiement",
+    "pages/urgence-retour/urgence-retour"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "Pour afficher votre position sur la carte et confirmer le lieu du rendez-vous"
+    }
+  },
+  "requiredPrivateInfos": ["getLocation"],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#B38F7F",
+    "navigationBarTitleText": "tiqqa",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "usingComponents": {
+    "device-status-bar": "/components/device-status-bar/device-status-bar",
+    "bottom-nav-bar": "/components/bottom-nav-bar/bottom-nav-bar"
+  }
+}

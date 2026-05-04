@@ -1,0 +1,177 @@
+<view class="container">
+  <!-- Header Background -->
+  <view class="header-bg">
+    <device-status-bar fillStatusBar="{{true}}" />
+    <view class="header-content">
+      <view class="back-btn" bindtap="onBack">
+        <text class="back-arrow">←</text>
+      </view>
+      <image class="logo" src="/assets/logo-tiqqa-header.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- Main Content Card -->
+  <view class="content-card">
+    <!-- Tabs -->
+    <view class="tabs-container">
+      <view class="tab {{activeTab === 'profil' ? 'active' : ''}}" bindtap="switchTab" data-tab="profil">
+        <view class="tab-icon-wrap">
+          <image class="tab-icon-img" src="/assets/icons/profile-user.png" wx:if="{{activeTab === 'profil'}}"></image>
+        </view>
+        <text class="tab-label">Profil</text>
+      </view>
+      <view class="tab {{activeTab === 'info' ? 'active' : ''}}" bindtap="switchTab" data-tab="info">
+        <view class="tab-icon-wrap">
+          <image class="tab-icon-img" src="/assets/icons/icon-info.png" wx:if="{{activeTab === 'info'}}"></image>
+          <text class="tab-icon-text" wx:else>ⓘ</text>
+        </view>
+        <text class="tab-label">Info clinique/contact</text>
+      </view>
+    </view>
+
+    <!-- Profile Info -->
+    <view class="profile-header">
+      <view class="avatar-circle">
+        <text>S</text>
+      </view>
+      <text class="user-name">{{fullName}}</text>
+    </view>
+
+    <!-- Form Profil -->
+    <scroll-view class="form-container" scroll-y="true" wx:if="{{activeTab === 'profil'}}">
+      <view class="input-group">
+        <text class="label">Nom</text>
+        <input class="input" placeholder="Nom" value="{{user.nom}}" bindinput="onInput" data-field="nom" />
+      </view>
+
+      <view class="input-group">
+        <text class="label">Prénom</text>
+        <input class="input" placeholder="Prénom" value="{{user.prenom}}" bindinput="onInput" data-field="prenom" />
+      </view>
+
+      <view class="input-group">
+        <text class="label">Email</text>
+        <input class="input" placeholder="example @gmail.com" value="{{user.email}}" bindinput="onInput" data-field="email" />
+      </view>
+
+      <view class="input-group">
+        <text class="label">Date de naissance</text>
+        <input class="input" placeholder="jj/mm/aaaa" value="{{user.dob}}" bindinput="onInput" data-field="dob" />
+      </view>
+
+      <view class="input-group">
+        <text class="label">Téléphone</text>
+        <view class="phone-input-wrap">
+          <view class="operator-selector">
+            <image class="operator-logo" src="/assets/icons/maroc-telecom.png" mode="aspectFit"></image>
+            <text class="dropdown-arrow">▼</text>
+          </view>
+          <input class="input phone-input" placeholder="06" value="{{user.phone}}" bindinput="onInput" data-field="phone" />
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- Form Info Clinique -->
+    <scroll-view class="form-container" scroll-y="true" wx:if="{{activeTab === 'info'}}">
+      <view class="input-group">
+        <text class="label">Ville</text>
+        <view class="select-input">
+          <text class="select-value">Casablanca</text>
+          <text class="dropdown-arrow">▼</text>
+        </view>
+      </view>
+
+      <view class="input-group">
+        <text class="label">Adresse</text>
+        <view class="select-input">
+          <text class="select-value">Ville</text>
+          <text class="dropdown-arrow">▼</text>
+        </view>
+      </view>
+
+      <view class="input-group">
+        <text class="label">Clinique</text>
+        <view class="select-input">
+          <text class="select-value placeholder"></text>
+          <text class="dropdown-arrow">▼</text>
+        </view>
+      </view>
+
+      <view class="separator-dots">
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+      </view>
+
+      <view class="emergency-section">
+        <text class="section-title">Contacts d'urgence</text>
+        
+        <view class="emergency-list">
+          <view class="emergency-card" wx:for="{{[1,2]}}" wx:key="index" bindtap="openModal">
+            <view class="contact-info">
+              <view class="contact-avatar">
+                <image src="/assets/icons/contact-placeholder.png" mode="aspectFit" class="contact-icon-img"></image>
+              </view>
+              <view class="contact-details">
+                <text class="contact-name">Amine</text>
+                <text class="contact-phone">06xxxxxx</text>
+              </view>
+            </view>
+            <view class="contact-actions" catchtap="onDeleteContact">
+              <view class="action-divider"></view>
+              <image src="/assets/icons/delete-icon.png" mode="aspectFit" class="delete-btn-img"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- Footer Button -->
+    <view class="footer-btn-wrap">
+      <button class="btn-valider" bindtap="onValider">Valider</button>
+    </view>
+  </view>
+
+  <!-- Member Info Modal -->
+  <view class="modal-mask" wx:if="{{showModal}}" bindtap="closeModal"></view>
+  <view class="member-modal" wx:if="{{showModal}}">
+    <view class="modal-header">
+      <view class="close-btn" bindtap="closeModal">×</view>
+    </view>
+    <view class="modal-body">
+      <text class="modal-title">Informations sur le membre</text>
+      
+      <view class="input-group">
+        <text class="label">Nom</text>
+        <input class="input" placeholder="Nom" value="{{memberInfo.nom}}" bindinput="onMemberInput" data-field="nom" />
+      </view>
+
+      <view class="input-group">
+        <text class="label">Prénom</text>
+        <input class="input" placeholder="Prénom" value="{{memberInfo.prenom}}" bindinput="onMemberInput" data-field="prenom" />
+      </view>
+
+      <view class="input-group">
+        <text class="label">Lien de parenté</text>
+        <view class="select-input">
+          <text class="select-value">fils, fille, neveu, voisin,...</text>
+          <text class="dropdown-arrow">▼</text>
+        </view>
+      </view>
+
+      <view class="input-group">
+        <text class="label">Téléphone</text>
+        <input class="input" placeholder="Prénom" value="{{memberInfo.phone}}" bindinput="onMemberInput" data-field="phone" />
+      </view>
+
+      <view class="modal-footer">
+        <button class="btn-valider" bindtap="onValider">Valider</button>
+      </view>
+    </view>
+  </view>
+</view>
