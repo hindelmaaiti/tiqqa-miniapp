@@ -29,7 +29,13 @@ Page({
   /** Quitter vers l'accueil */
   onCancelExit() {
     wx.reLaunch({
-      url: '/pages/dashboard/dashboard'
+      url: '/pages/home/home'
+    });
+  },
+
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
     });
   },
 

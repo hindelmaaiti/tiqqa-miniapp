@@ -97,5 +97,11 @@ Page({
     wx.navigateTo({ url: '/pages/sante/sante' });
   },
 
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
+  },
+
   onNavTap: defaultBottomNavTap
 });

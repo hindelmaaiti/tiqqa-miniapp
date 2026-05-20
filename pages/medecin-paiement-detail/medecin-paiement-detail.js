@@ -108,15 +108,10 @@ Page({
       wx.showToast({ title: 'Veuillez accepter les CGU', icon: 'none' });
       return;
     }
-    if (this.data.methodKey === 'tashilat') {
-      this.setData({
-        paymentCode: makePaymentCode(),
-        showAgencyModal: true
-      });
-      return;
-    }
-    wx.redirectTo({
-      url: '/pages/medecin-paiement-statut/medecin-paiement-statut'
+    // Afficher la boîte d'alerte (modal) pour tous les modes comme demandé
+    this.setData({
+      paymentCode: makePaymentCode(),
+      showAgencyModal: true
     });
   },
 

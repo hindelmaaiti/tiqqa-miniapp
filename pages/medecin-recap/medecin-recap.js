@@ -19,5 +19,11 @@ Page({
     wx.navigateTo({ url: '/pages/medecin-paiement/medecin-paiement' });
   },
 
-  onNavTap: defaultBottomNavTap
+  onNavTap: defaultBottomNavTap,
+
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
+  }
 });

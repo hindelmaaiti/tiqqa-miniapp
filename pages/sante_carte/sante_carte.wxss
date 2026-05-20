@@ -16,64 +16,101 @@
   padding-top: 8rpx;
 }
 
-.header {
+/* New Header Styles from Photo */
+.horaire-header-wrap {
+  flex-shrink: 0;
+  background: #ffffff;
+  min-height: 120rpx;
+  height: auto;
+  padding-top: 10rpx;
+  padding-bottom: 8rpx;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.status-row {
   display: flex;
+  align-items: center;
+  padding: 0 34rpx 0rpx;
+  box-sizing: border-box;
+  min-height: 0;
+  height: auto;
+}
+
+.top-bar--horaire {
+  position: relative;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  height: 76rpx;
-  padding: 2rpx 22rpx 2rpx;
-  margin-top: 8rpx;
-  background: #fff;
+  padding: 0 40rpx 0 20rpx;
+  box-sizing: border-box;
+  background: #ffffff;
 }
 
-.back-btn {
+.back-wrap {
   display: flex;
   align-items: center;
-  gap: 10rpx;
+  gap: 12rpx;
 }
 
-.back-icon-wrap {
-  width: 40rpx;
-  height: 40rpx;
+.back-circle {
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50%;
-  background: #f0f0f0;
+  background: #f2f2f2;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.icon-back {
-  width: 16rpx;
-  height: 16rpx;
-  opacity: 0.7;
+  justify-content: center;
+  color: #333;
+  font-size: 24rpx;
+  font-weight: bold;
 }
 
 .back-text {
-  font-size: 24rpx;
-  color: #4a4a4a;
+  font-size: 26rpx;
   font-weight: 600;
+  color: #000000;
 }
 
 .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 160rpx;
-  height: 56rpx;
+  height: 60rpx;
 }
 
-.profile-container {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.12);
-  padding: 2px;
-  box-sizing: border-box;
+.avatar-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
 }
 
-.profile-img {
-  width: 40px;
-  height: 40px;
+.avatar-wrap {
+  width: 150rpx;
+  height: 150rpx;
   border-radius: 50%;
-  border: 2rpx solid #dcdcdc;
+  background: transparent;
+}
+
+.avatar-wrap--bubble {
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .banner-top-bar {

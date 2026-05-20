@@ -10,9 +10,11 @@
     
     <image class="logo" src="../../assets/logo-tiqqa-header.png" mode="aspectFit"></image>
 
-    <view class="avatar-wrap">
-      <image class="avatar" src="../../assets/prof.png" mode="aspectFill"></image>
-      <view class="speech-tail"></view>
+    <view class="avatar-bubble" bindtap="onProfileTap">
+      <view class="avatar-wrap avatar-wrap--bubble">
+        <image class="avatar" src="/assets/prof.png" mode="aspectFill"></image>
+      </view>
+      <view class="avatar-bubble-tail"></view>
     </view>
   </view>
 
@@ -43,9 +45,9 @@
       </view>
 
       <view class="steps-list">
-        <view class="step-item-denied">
-          <text class="step-text-white">Prise en charge non autorisée par la loi.</text>
-          <view class="close-icon-circle">✕</view>
+        <view class="step-item-denied" bindtap="onRedirectionTap">
+          <text class="step-text-white">Redirection : El Mansour - capacités limitées, transfert vers Narjiss</text>
+          <view class="close-icon-circle" bindtap="onCloseTap">✕</view>
         </view>
       </view>
     </view>

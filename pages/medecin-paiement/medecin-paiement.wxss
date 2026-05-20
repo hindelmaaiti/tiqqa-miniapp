@@ -53,30 +53,37 @@ page {
   min-height: 2800rpx;
 }
 
+/* New Header Styles from Photo */
+.horaire-header-wrap {
+  flex-shrink: 0;
+  background: #ffffff;
+  min-height: 120rpx;
+  height: auto;
+  padding-top: 10rpx;
+  padding-bottom: 8rpx;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 .status-row {
   display: flex;
   align-items: center;
-  padding: 8rpx 34rpx 8rpx;
+  padding: 0 34rpx 0rpx;
   box-sizing: border-box;
-  background: #ffffff;
   min-height: 0;
   height: auto;
 }
 
-.pay-scroll-anchor {
-  width: 100%;
-  height: 2rpx;
-  pointer-events: none;
-}
-
-.top-bar--paiement {
+.top-bar--horaire {
   position: relative;
   width: 100%;
-  height: 92rpx;
+  height: 90rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 22rpx 0 20rpx;
+  padding: 0 40rpx 0 20rpx;
   box-sizing: border-box;
   background: #ffffff;
 }
@@ -84,25 +91,26 @@ page {
 .back-wrap {
   display: flex;
   align-items: center;
-  gap: 10rpx;
+  gap: 12rpx;
 }
 
 .back-circle {
-  width: 34rpx;
-  height: 34rpx;
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50%;
-  background: #ececec;
+  background: #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #666;
-  font-size: 20rpx;
+  color: #333;
+  font-size: 24rpx;
+  font-weight: bold;
 }
 
 .back-text {
-  font-size: 24rpx;
+  font-size: 26rpx;
   font-weight: 600;
-  color: #181818;
+  color: #000000;
 }
 
 .logo {
@@ -110,8 +118,8 @@ page {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 138rpx;
-  height: 54rpx;
+  width: 160rpx;
+  height: 60rpx;
 }
 
 .avatar-bubble {
@@ -119,30 +127,21 @@ page {
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
+  position: relative;
+  z-index: 10;
 }
 
 .avatar-wrap {
-  width: 86rpx;
-  height: 86rpx;
-  border-radius: 43rpx;
-  border: 4rpx solid #f2f2f2;
-  background: #fff;
-  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.12);
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background: transparent;
 }
 
 .avatar-wrap--bubble {
-  border: 5rpx solid #ffffff;
-  box-shadow: 0 4rpx 14rpx rgba(0, 0, 0, 0.12);
-}
-
-.avatar-bubble-tail {
-  width: 0;
-  height: 0;
-  border-left: 14rpx solid transparent;
-  border-right: 14rpx solid transparent;
-  border-top: 18rpx solid #ffffff;
-  margin-top: -8rpx;
-  filter: drop-shadow(0 4rpx 4rpx rgba(0, 0, 0, 0.06));
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
 }
 
 .avatar {
@@ -150,6 +149,7 @@ page {
   height: 100%;
   border-radius: 50%;
 }
+
 
 .payment-hero-frame {
   width: 750rpx;

@@ -1,9 +1,9 @@
 {
-  "entryPagePath": "pages/urgence-retour/urgence-retour",
+  "entryPagePath": "pages/bon_plan/bon_plan",
   "pages": [
-    "pages/home/home",
-    "pages/index/index", 
+    
     "pages/profile/profile",
+    "pages/index/index", 
     "pages/login/login",
     "pages/signup/signup",
     "pages/verify/verify",
@@ -15,11 +15,12 @@
     "pages/sante_calendar/sante_calendar",
     "pages/sante_horaire/sante_horaire",
     "pages/sante_location/sante_location",
-    "pages/sante_recap/sante_recap",
     "pages/sante_paymethod/sante_paymethod",
     "pages/sante_carte/sante_carte",
     "pages/sante_paiement_detail/sante_paiement_detail",
+    "pages/sante_recap/sante_recap",
     "pages/sante_rdv_status/sante_rdv_status",
+    "pages/medecin_calendar/medecin_calendar",
     "pages/medecin-horaire/medecin-horaire",
     "pages/medecin-lieu/medecin-lieu",
     "pages/medecin-recap/medecin-recap",
@@ -27,14 +28,20 @@
     "pages/medecin-paiement-detail/medecin-paiement-detail",
     "pages/medecin-paiement-statut/medecin-paiement-statut",
     "pages/medecin-rdv-annule/medecin-rdv-annule",
-    "pages/medecin-paiement-effectue/medecin-paiement-effectue",
+    "pages/essentiels/essentiels",
+    "pages/bon_plan/bon_plan",
     "pages/urgence/urgence",
     "pages/urgence-confirm/urgence-confirm",
     "pages/urgence-cancel/urgence-cancel",
     "pages/urgence-tracking/urgence-tracking",
     "pages/urgence-success/urgence-success",
     "pages/urgence-paiement/urgence-paiement",
-    "pages/urgence-retour/urgence-retour"
+    "pages/urgence-retour/urgence-retour",
+    "pages/reglages/reglages",
+    "pages/abonnement/abonnement",
+    "pages/recu_paiement/recu_paiement",
+    "pages/suivi_medicaments/suivi_medicaments",
+    "pages/ajouter_medicament/ajouter_medicament"
   ],
   "permission": {
     "scope.userLocation": {

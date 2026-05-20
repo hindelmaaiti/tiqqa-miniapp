@@ -59,5 +59,11 @@ Page({
     wx.navigateTo({ url: '/pages/sante_horaire/sante_horaire' });
   },
 
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
+  },
+
   onNavTap: defaultBottomNavTap
 });

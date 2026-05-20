@@ -8,12 +8,11 @@
       <text class="back-text">Retour</text>
     </view>
     <image class="logo" src="../../assets/logo-tiqqa-header.png" mode="aspectFit"></image>
-    <view class="profile-slot">
-      <view class="avatar-wrap">
-        <image class="avatar" src="../../assets/prof.png" mode="aspectFill"></image>
-        <view class="speech-tail"></view>
-      </view>
-    </view>
+    <view class="avatar-bubble" bindtap="onProfileTap">
+          <view class="avatar-wrap avatar-wrap--bubble">
+            <image class="avatar" src="/assets/prof.png" mode="aspectFill"></image>
+          </view>
+        </view>
   </view>
 
   <scroll-view class="body-scroll" scroll-y="true">
@@ -35,6 +34,7 @@
 
     <!-- Cards Section -->
     <view class="cards-section">
+      <!-- Confirm Card -->
       <view class="confirm-card" bindtap="onAmbulanceTap">
         <view class="image-area">
           <image class="card-urg-img" src="../../assets/urg.png" mode="aspectFit"></image>
@@ -45,6 +45,7 @@
         </view>
       </view>
 
+      <!-- Cancel Card -->
       <view class="cancel-card" bindtap="onCancelTap">
         <view class="image-area">
           <image class="card-urg-img grayed" src="../../assets/urg.png" mode="aspectFit"></image>

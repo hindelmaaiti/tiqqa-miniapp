@@ -10,9 +10,10 @@
     
     <image class="logo" src="../../assets/logo-tiqqa-header.png" mode="aspectFit"></image>
 
-    <view class="avatar-wrap">
-      <image class="avatar" src="../../assets/prof.png" mode="aspectFill"></image>
-      <view class="speech-tail"></view>
+    <view class="avatar-bubble" bindtap="onProfileTap">
+      <view class="avatar-wrap avatar-wrap--bubble">
+        <image class="avatar" src="/assets/prof.png" mode="aspectFill"></image>
+      </view>
     </view>
   </view>
 
@@ -40,14 +41,14 @@
     <view class="timeline-container">
       <view class="timeline-track">
         <view class="timeline-line"></view>
-        <!-- The dot stays at the top of the visible list -->
-        <view class="timeline-dot-active" style="top: 30rpx"></view>
+        <!-- The dot moves based on the current step. Each step is roughly 100rpx + gap. -->
+        <view class="timeline-dot-active" style="top: {{30 + (currentStep-1) * 115}}rpx"></view>
       </view>
 
       <view class="steps-list">
-        <!-- We only show steps from currentStep onwards -->
-        <block wx:for="{{stepsData}}" wx:key="id" wx:if="{{item.id >= currentStep}}">
-          <view class="step-item {{item.id === currentStep ? 'step-active' : ''}}" bindtap="onStepTap" data-step="{{item.id}}">
+        <!-- Show all steps. Previous steps will be marked differently if needed, but for now just show them all. -->
+        <block wx:for="{{stepsData}}" wx:key="id">
+          <view class="step-item {{item.id === currentStep ? 'step-active' : ''}} {{item.id < currentStep ? 'step-completed' : ''}}" bindtap="onStepTap" data-step="{{item.id}}">
             <view class="step-content-row">
               <text class="step-text">{{item.title}}</text>
               <view class="check-mark-circle" wx:if="{{item.id === currentStep}}">✓</view>

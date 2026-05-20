@@ -1,4 +1,7 @@
 {
   "navigationStyle": "custom",
-  "backgroundColor": "#f4f5f4"
+  "usingComponents": {
+    "device-status-bar": "/components/device-status-bar/device-status-bar",
+    "bottom-nav-bar": "/components/bottom-nav-bar/bottom-nav-bar"
+  }
 }

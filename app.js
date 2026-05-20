@@ -1,11 +1,33 @@
 
-//app.js
+// app.js
+if (typeof wx !== 'undefined') {
+  // Global patch for framework-level destructuring errors (mockConfig / n is undefined)
+  const methods = ['setStorageSync', 'getStorageSync', 'writeFile', 'getFileSystemManager'];
+  methods.forEach(m => {
+    if (wx[m]) {
+      const orig = wx[m];
+      wx[m] = function(...args) {
+        try {
+          return orig.apply(this, args);
+        } catch (e) {
+          console.error(`Intercepted framework error in wx.${m}:`, e);
+          return null;
+        }
+      };
+    }
+  });
+}
+
 App({
   onLaunch: function () {
     // show localstorage
-    let logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    try {
+      let logs = wx.getStorageSync('logs') || []
+      logs.unshift(Date.now())
+      wx.setStorageSync('logs', logs)
+    } catch (err) {
+      console.warn('Storage initialization skipped:', err);
+    }
 
     // login
     wx.login({

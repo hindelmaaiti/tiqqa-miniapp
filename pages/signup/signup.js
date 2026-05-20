@@ -134,7 +134,7 @@ Page({
         });
         setTimeout(() => {
           wx.redirectTo({
-            url: '/pages/login/login'
+            url: '/pages/verify/verify'
           });
         }, 500);
       })

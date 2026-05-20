@@ -135,21 +135,21 @@ textarea {
   overflow: visible;
 }
 
-/* Accueil / dashboard : 401×76 via bottomNav.js ; fond barre #f5f5f5 */
 .bottom-nav.bottom-nav--light.safe-bottom:not(.bottom-nav--in-card) {
   position: fixed;
-  bottom: 20rpx;
-  left: 4%;
-  right: 4%;
-  width: 92%;
-  height: 120rpx;
+  bottom: -10rpx;
+  left: -44rpx;
+  width: 838rpx;
+  height: 161rpx;
   z-index: 9999;
   display: flex;
-  background: #f1f3f4; /* Très léger gris comme l'image */
-  border-radius: 60rpx; /* Coins très arrondis partout */
-  box-shadow: 0 10rpx 40rpx rgba(0,0,0,0.1);
+  background: #F8F9FA;
+  border-radius: 60rpx;
+  box-shadow: 0 0 20rpx rgba(0,0,0,0.05);
   box-sizing: border-box;
   overflow: visible;
+  align-items: center;
+  padding: 0 64rpx; /* Extra padding to offset the bleed and keep icons centered in screen */
 }
 
 .bottom-nav.bottom-nav--light.safe-bottom:not(.bottom-nav--in-card) .nav-item {
@@ -177,8 +177,8 @@ textarea {
 /* Bulle messages + badge */
 .bottom-nav .nav-badge-slot {
   position: relative;
-  width: 52rpx;
-  height: 52rpx;
+  width: 40rpx;
+  height: 40rpx;
   flex-shrink: 0;
 }
 
@@ -209,9 +209,12 @@ textarea {
 /* Ambulance */
 .bottom-nav .nav-item:nth-child(5) .nav-ambulance-slot {
   position: relative;
-  width: 48rpx;
-  height: 48rpx;
+  width: 56rpx;
+  height: 56rpx;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bottom-nav .nav-item:nth-child(5) .nav-icon--ambulance {
@@ -225,12 +228,12 @@ textarea {
 .nav-ambulance-siren {
   position: absolute;
   z-index: 2;
-  left: 42.2307692308rpx;
-  top: 11.3461538462rpx;
-  width: 12.8076923077rpx;
-  height: 8.0192307692rpx;
+  left: 55%;
+  top: 15%;
+  width: 10rpx;
+  height: 8rpx;
   background: #d62d16;
-  border-radius: 12.8076923077rpx 12.8076923077rpx 0 0;
+  border-radius: 10rpx 10rpx 0 0;
   pointer-events: none;
   box-sizing: border-box;
 }
@@ -238,10 +241,10 @@ textarea {
 .nav-ambulance-star {
   position: absolute;
   z-index: 2;
-  left: 34.375rpx;
-  top: 39.5961538462rpx;
-  width: 20.0961538462rpx;
-  height: 20.3846153846rpx;
+  left: 30%;
+  top: 60%;
+  width: 18rpx;
+  height: 18rpx;
   transform: translate(-50%, -50%);
   pointer-events: none;
   box-sizing: border-box;
@@ -270,11 +273,11 @@ textarea {
 
 .bottom-nav .nav-badge .badge {
   position: absolute;
-  top: -6rpx;
-  right: -6rpx;
-  min-width: 28rpx;
-  height: 28rpx;
-  border-radius: 14rpx;
+  top: -10rpx;
+  right: -12rpx;
+  min-width: 30rpx;
+  height: 30rpx;
+  border-radius: 15rpx;
   background: #eedd44;
   color: #000000;
   font-size: 16rpx;
@@ -302,9 +305,9 @@ textarea {
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
-  background: #dcdcdc;
+  background: #EBEBEB;
   box-sizing: border-box;
-  box-shadow: 0 0 20rpx rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 6rpx #ffffff, 0 8rpx 16rpx rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -327,4 +330,9 @@ textarea {
   width: 100%;
   display: block;
 }
+
+/* Force loading of Suivi Médicaments styles (workaround for WeChat watcher bug) */
+@import "pages/suivi_medicaments/suivi_medicaments.wxss";
+@import "pages/bon_plan/bon_plan.wxss";
+
 

@@ -68,5 +68,11 @@ Page({
     wx.navigateTo({ url: '/pages/medecin-lieu/medecin-lieu' });
   },
 
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
+  },
+
   onNavTap: defaultBottomNavTap
 });

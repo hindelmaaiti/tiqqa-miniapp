@@ -10,10 +10,10 @@
             <view class="back-circle">←</view>
             <text class="back-text">Retour</text>
           </view>
-          <image class="logo" src="/assets/logo/logo-tiqqa.png" mode="aspectFit"></image>
-          <view class="avatar-bubble avatar-bubble--horaire">
+          <image class="logo" src="/assets/logtiqqa.png" mode="aspectFit"></image>
+          <view class="avatar-bubble" bindtap="onProfileTap">
             <view class="avatar-wrap avatar-wrap--bubble">
-              <image class="avatar" src="/assets/avatar/avatar-user.png" mode="aspectFill"></image>
+              <image class="avatar" src="/assets/profile.png" mode="aspectFill"></image>
             </view>
             <view class="avatar-bubble-tail"></view>
           </view>
@@ -55,10 +55,13 @@
       </scroll-view>
     </view>
 
-    <view class="cta-area cta-area--horaire">
-      <view class="cta-btn" bindtap="onNextStep">Suivant</view>
+    <view class="action-footer">
+      <button class="btn-valider" bindtap="onNextStep">Suivant</button>
     </view>
+    <view class="bottom-spacer"></view>
+  </view>
 
-    <bottom-nav-bar variant="in-card" message-count="6" bind:navtap="onNavTap" />
+  <view class="fixed-menu-container">
+    <bottom-nav-bar active-tab="calendar" variant="fixed" message-count="6" bind:navtap="onNavTap" />
   </view>
 </view>

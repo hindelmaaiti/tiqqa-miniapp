@@ -52,21 +52,24 @@ page {
 }
 
 /* En-tête + statut : même principe que medecin-domicile (capture 2) */
+/* New Header Styles from Photo */
 .horaire-header-wrap {
   flex-shrink: 0;
   background: #ffffff;
-  /* Figma: top de la zone menthe a 101px => header blanc 101px */
-  min-height: 194.2307692308rpx;
+  min-height: 120rpx;
   height: auto;
-  padding-top: 40rpx;
+  padding-top: 10rpx;
   padding-bottom: 8rpx;
   box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .status-row {
   display: flex;
   align-items: center;
-  padding: 0 34rpx 8rpx;
+  padding: 0 34rpx 0rpx;
   box-sizing: border-box;
   min-height: 0;
   height: auto;
@@ -75,11 +78,11 @@ page {
 .top-bar--horaire {
   position: relative;
   width: 100%;
-  height: 92.3076923077rpx;
+  height: 90rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 22rpx 0 20rpx;
+  padding: 0 40rpx 0 20rpx;
   box-sizing: border-box;
   background: #ffffff;
 }
@@ -87,25 +90,26 @@ page {
 .back-wrap {
   display: flex;
   align-items: center;
-  gap: 10rpx;
+  gap: 12rpx;
 }
 
 .back-circle {
-  width: 34rpx;
-  height: 34rpx;
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50%;
-  background: #ececec;
+  background: #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #666;
-  font-size: 20rpx;
+  color: #333;
+  font-size: 24rpx;
+  font-weight: bold;
 }
 
 .back-text {
-  font-size: 24rpx;
+  font-size: 26rpx;
   font-weight: 600;
-  color: #181818;
+  color: #000000;
 }
 
 .logo {
@@ -113,8 +117,8 @@ page {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 138rpx;
-  height: 54rpx;
+  width: 160rpx;
+  height: 60rpx;
 }
 
 .avatar-bubble {
@@ -122,34 +126,21 @@ page {
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
-}
-
-.avatar-bubble--horaire {
-  margin-top: 0;
+  position: relative;
+  z-index: 10;
 }
 
 .avatar-wrap {
-  width: 86rpx;
-  height: 86rpx;
-  border-radius: 43rpx;
-  border: 4rpx solid #f2f2f2;
-  background: #fff;
-  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.12);
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background: transparent;
 }
 
 .avatar-wrap--bubble {
-  border: 5rpx solid #ffffff;
-  box-shadow: 0 4rpx 14rpx rgba(0, 0, 0, 0.12);
-}
-
-.avatar-bubble-tail {
-  width: 0;
-  height: 0;
-  border-left: 14rpx solid transparent;
-  border-right: 14rpx solid transparent;
-  border-top: 18rpx solid #ffffff;
-  margin-top: -8rpx;
-  filter: drop-shadow(0 4rpx 4rpx rgba(0, 0, 0, 0.06));
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
 }
 
 .avatar {
@@ -157,6 +148,7 @@ page {
   height: 100%;
   border-radius: 50%;
 }
+
 
 .doctor-hero--horaire {
   /* Figma: 402x211 px, left -6, top 101 */
@@ -349,34 +341,36 @@ page {
   color: #ffffff;
 }
 
-/* Plus d’espace sous les créneaux avant Suivant (comme capture 2) */
-.cta-area--horaire {
-  flex-shrink: 0;
-  background: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 48rpx 40rpx 16rpx;
-  box-sizing: border-box;
+/* Action Footer */
+.action-footer {
+  padding: 60rpx 40rpx;
+  background-color: #ffffff;
 }
 
-/* Même bouton que medecin-domicile Figma */
-.cta-btn {
-  width: 607.6923076923rpx;
-  max-width: 100%;
-  margin-top: 16rpx;
-  height: 111.5384615385rpx;
-  box-sizing: border-box;
-  background: #70b682;
-  border-radius: 76.9230769231rpx;
-  color: #fff;
-  font-size: 34rpx;
-  font-weight: 700;
+.btn-valider {
+  width: 100% !important;
+  height: 110rpx;
+  background-color: #77B080;
+  color: #ffffff;
+  border-radius: 55rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1;
+  font-size: 32rpx;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.bottom-spacer {
+  height: 160rpx;
+}
+
+.fixed-menu-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
 .bottom-nav.bottom-nav--in-card {

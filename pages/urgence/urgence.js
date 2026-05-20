@@ -32,5 +32,11 @@ Page({
     if (action === 'home') {
       wx.reLaunch({ url: '../home/home' });
     }
+  },
+
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
   }
 });

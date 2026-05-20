@@ -37,31 +37,37 @@ page {
   position: relative;
 }
 
-.recap-header-wrap {
+/* New Header Styles from Photo */
+.horaire-header-wrap {
   flex-shrink: 0;
   background: #ffffff;
-  padding-top: 36rpx;
+  min-height: 120rpx;
+  height: auto;
+  padding-top: 10rpx;
   padding-bottom: 8rpx;
   box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .status-row {
   display: flex;
   align-items: center;
-  padding: 0 34rpx 8rpx;
+  padding: 0 34rpx 0rpx;
   box-sizing: border-box;
   min-height: 0;
   height: auto;
 }
 
-.top-bar--recap {
+.top-bar--horaire {
   position: relative;
   width: 100%;
-  height: 92.3076923077rpx;
+  height: 100rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 22rpx 0 20rpx;
+  padding: 0 40rpx 0 20rpx;
   box-sizing: border-box;
   background: #ffffff;
 }
@@ -69,25 +75,26 @@ page {
 .back-wrap {
   display: flex;
   align-items: center;
-  gap: 10rpx;
+  gap: 12rpx;
 }
 
 .back-circle {
-  width: 34rpx;
-  height: 34rpx;
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50%;
-  background: #ececec;
+  background: #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #666;
-  font-size: 20rpx;
+  color: #333;
+  font-size: 24rpx;
+  font-weight: bold;
 }
 
 .back-text {
-  font-size: 24rpx;
+  font-size: 26rpx;
   font-weight: 600;
-  color: #181818;
+  color: #000000;
 }
 
 .logo {
@@ -95,8 +102,8 @@ page {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 138rpx;
-  height: 54rpx;
+  width: 160rpx;
+  height: 60rpx;
 }
 
 .avatar-bubble {
@@ -104,30 +111,21 @@ page {
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
+  position: relative;
+  z-index: 10;
 }
 
 .avatar-wrap {
-  width: 86rpx;
-  height: 86rpx;
-  border-radius: 43rpx;
-  border: 4rpx solid #f2f2f2;
-  background: #fff;
-  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.12);
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background: transparent;
 }
 
 .avatar-wrap--bubble {
-  border: 5rpx solid #ffffff;
-  box-shadow: 0 4rpx 14rpx rgba(0, 0, 0, 0.12);
-}
-
-.avatar-bubble-tail {
-  width: 0;
-  height: 0;
-  border-left: 14rpx solid transparent;
-  border-right: 14rpx solid transparent;
-  border-top: 18rpx solid #ffffff;
-  margin-top: -8rpx;
-  filter: drop-shadow(0 4rpx 4rpx rgba(0, 0, 0, 0.06));
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
 }
 
 .avatar {
@@ -137,42 +135,42 @@ page {
 }
 
 .recap-green-zone {
-  /* Figma: 402x417 px, top 101, left -6 */
   width: 773.0769230769rpx;
   height: 801.9230769231rpx;
   margin-left: -11.5384615385rpx;
   flex-shrink: 0;
   background: #c1e2cb;
-  padding: 22rpx 40rpx 30rpx;
+  padding: 40rpx 40rpx 30rpx;
   box-sizing: border-box;
 }
 
 .recap-panel {
-  /* Figma: width 309, height 371, top 125, left 38, radius 11 */
   width: 594.2307692308rpx;
-  height: 713.4615384615rpx;
+  height: auto;
+  min-height: 713.4615384615rpx;
   margin-left: 52.3076923077rpx;
-  margin-top: 46.1538461538rpx;
-  background: #f3f9f5;
-  border-radius: 21.1538461538rpx;
+  margin-top: 0rpx;
+  background: #ffffff;
+  border-radius: 40rpx;
   padding: 46.1538461538rpx 42.3076923077rpx;
   box-sizing: border-box;
-  overflow: hidden;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.05);
 }
 
 .recap-title {
   display: block;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 34rpx;
+  font-size: 36rpx;
   color: #2f7b43;
-  margin-bottom: 16rpx;
+  margin-bottom: 40rpx;
   text-decoration: underline;
-  text-underline-offset: 5rpx;
+  text-decoration-color: #2f7b43;
+  text-underline-offset: 8rpx;
 }
 
 .recap-item {
-  margin-bottom: 14rpx;
+  margin-bottom: 24rpx;
 }
 
 .recap-item--last {
@@ -182,32 +180,27 @@ page {
 .recap-label {
   display: block;
   font-size: 32rpx;
-  font-weight: 700;
-  color: #111111;
+  font-weight: 800;
+  color: #000000;
   margin-bottom: 4rpx;
 }
 
 .recap-value {
   display: block;
   font-size: 30rpx;
-  color: #303030;
+  color: #616161;
   line-height: 1.35;
-}
-
-.recap-value--link {
-  color: #2f6fa8;
-  text-decoration: underline;
+  font-weight: 400;
 }
 
 .confirm-area--recap {
   flex-shrink: 0;
-  margin-top: auto;
+  margin-top: 100rpx;
   background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  /* Espace bouton -> barre aligné au repère rouge */
   padding: 8rpx 40rpx 54rpx;
   box-sizing: border-box;
 }
@@ -215,16 +208,17 @@ page {
 .confirm-btn {
   width: 607.6923076923rpx;
   max-width: 100%;
-  height: 111.5384615385rpx;
+  height: 120rpx;
   box-sizing: border-box;
-  background: #70b682;
-  border-radius: 76.9230769231rpx;
+  background: #77b080;
+  border-radius: 60rpx;
   color: #fff;
-  font-size: 34rpx;
+  font-size: 36rpx;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 8rpx 20rpx rgba(119, 176, 128, 0.3);
 }
 
 .bottom-nav.bottom-nav--in-card {

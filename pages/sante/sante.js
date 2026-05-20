@@ -13,6 +13,10 @@ Page({
     console.log("Dashboard Sante chargé");
   },
 
+  onBack() {
+    wx.navigateBack();
+  },
+
   onReady() {
     this.initScrollMetrics();
   },
@@ -44,7 +48,21 @@ Page({
   // Navigation vers Médecin à domicile
   goToMedecinHoraire() {
     wx.navigateTo({
-      url: '/pages/medecin-horaire/medecin-horaire'
+      url: '/pages/medecin_calendar/medecin_calendar'
+    });
+  },
+
+  // Navigation vers Urgence
+  goToUrgence() {
+    wx.navigateTo({
+      url: '/pages/essentiels/essentiels'
+    });
+  },
+
+  // Navigation vers Suivi Médicaments
+  goToSuiviMedicaments() {
+    wx.navigateTo({
+      url: '/pages/suivi_medicaments/suivi_medicaments'
     });
   },
 
@@ -138,6 +156,12 @@ Page({
   scrollDown() {
     const { maxScrollTop } = this.data;
     wx.pageScrollTo({ scrollTop: maxScrollTop, duration: 180 });
+  },
+
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
   },
 
   onNavTap: defaultBottomNavTap

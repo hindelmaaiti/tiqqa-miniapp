@@ -1,23 +1,25 @@
 <view class="page">
   <view class="mobile-card">
-    <view class="content-scroll">
+    <view class="horaire-header-wrap">
       <view class="status-row">
         <device-status-bar fillStatusBar="{{true}}" edgePadding="{{false}}" />
       </view>
-      <view class="top-bar top-bar--detail">
+      <view class="top-bar top-bar--horaire">
         <view class="back-wrap" bindtap="onBack">
           <view class="back-circle">←</view>
           <text class="back-text">Retour</text>
         </view>
-        <image class="logo" src="/assets/logo/logo-tiqqa.png" mode="aspectFit"></image>
-        <view class="avatar-bubble">
+        <image class="logo" src="/assets/logtiqqa.png" mode="aspectFit"></image>
+        <view class="avatar-bubble" bindtap="onProfileTap">
           <view class="avatar-wrap avatar-wrap--bubble">
-            <image class="avatar" src="/assets/avatar/avatar-user.png" mode="aspectFill"></image>
+            <image class="avatar" src="/assets/profile.png" mode="aspectFill"></image>
           </view>
           <view class="avatar-bubble-tail"></view>
         </view>
       </view>
+    </view>
 
+    <view class="content-scroll">
       <view class="annule-mint-zone">
         <text class="annule-title">RENDEZ VOUS ANNULÉ</text>
         <view class="annule-desc-wrap">
@@ -71,6 +73,6 @@
       </view>
     </view>
 
-    <bottom-nav-bar variant="in-card" message-count="6" bind:navtap="onNavTap" />
+    <bottom-nav-bar variant="fixed" message-count="6" bind:navtap="onNavTap" />
   </view>
 </view>

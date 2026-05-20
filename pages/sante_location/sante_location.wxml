@@ -1,16 +1,20 @@
 <view class="container">
   <view class="shell">
-    <view class="header">
-      <view class="back-btn" bindtap="onBack">
-        <view class="back-icon-wrap">
-          <text class="arrow-text">←</text>
-        </view>
-        <text class="back-text">Retour</text>
+    <view class="horaire-header-wrap">
+      <view class="status-row">
+        <device-status-bar fillStatusBar="{{true}}" edgePadding="{{false}}" />
       </view>
-      <image src="/assets/logtiqqa.png" class="logo" mode="aspectFit"></image>
-      <view class="profile-bubble">
-        <image class="profile-img" src="/assets/profile.png"/>
-        <view class="speech-tail"></view>
+      <view class="top-bar top-bar--horaire">
+        <view class="back-wrap" bindtap="onBack">
+          <view class="back-circle">←</view>
+          <text class="back-text">Retour</text>
+        </view>
+        <image class="logo" src="/assets/logtiqqa.png" mode="aspectFit"></image>
+        <view class="avatar-bubble" bindtap="onProfileTap">
+          <view class="avatar-wrap avatar-wrap--bubble">
+            <image class="avatar" src="/assets/profile.png" mode="aspectFill"></image>
+          </view>
+        </view>
       </view>
     </view>
 
@@ -51,11 +55,13 @@
       <image src="/assets/infirmier.png" class="doctor" mode="aspectFit"></image>
     </view>
 
-    <view class="actions">
-      <button class="btn next" bindtap="onFinalConfirm">Suivant</button>
-      <button class="btn location" bindtap="onLocate">Activer La Localisation</button>
+    <view class="action-footer">
+      <button class="btn-valider" style="margin-bottom: 24rpx;" bindtap="onFinalConfirm">Suivant</button>
+      <button class="btn-valider" style="background-color: #4b5d54;" bindtap="onLocate">Activer La Localisation</button>
     </view>
+  </view>
 
-    <bottom-nav-bar variant="fixed" message-count="6" bind:navtap="onNavTap" />
+  <view class="fixed-menu-container">
+    <bottom-nav-bar active-tab="calendar" variant="fixed" message-count="6" bind:navtap="onNavTap" />
   </view>
 </view>

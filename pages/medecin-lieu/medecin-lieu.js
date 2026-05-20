@@ -283,5 +283,11 @@ Page({
     wx.navigateTo({ url: '/pages/medecin-recap/medecin-recap' });
   },
 
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
+  },
+
   onNavTap: defaultBottomNavTap
 });

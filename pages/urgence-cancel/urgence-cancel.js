@@ -32,5 +32,11 @@ Page({
     } else if (action === 'emergency') {
       wx.redirectTo({ url: '../urgence/urgence' });
     }
+  },
+
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
   }
 });

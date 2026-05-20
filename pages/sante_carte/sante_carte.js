@@ -27,5 +27,11 @@ Page({
     });
   },
 
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
+  },
+
   onNavTap: defaultBottomNavTap
 });

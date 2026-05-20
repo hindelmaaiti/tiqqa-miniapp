@@ -15,11 +15,17 @@ Page({
       relationship: '',
       phone: ''
     },
-    fullName: 'Ahmed Salim'
+    fullName: 'Ahmed Salim',
+    phone: '0611996095',
+    viewState: 'main' // 'main' or 'details'
   },
 
   onLoad(options) {
     // Initialize data if needed
+  },
+
+  showDetails() {
+    this.setData({ viewState: 'details' });
   },
 
   switchTab(e) {
@@ -30,7 +36,17 @@ Page({
   },
 
   onBack() {
-    wx.navigateBack();
+    if (this.data.viewState === 'details') {
+      this.setData({ viewState: 'main' });
+    } else {
+      wx.navigateBack();
+    }
+  },
+
+  onReglagesTap() {
+    wx.navigateTo({
+      url: '/pages/reglages/reglages'
+    });
   },
 
   onInput(e) {
@@ -81,6 +97,15 @@ Page({
         title: 'Profil mis à jour',
         icon: 'success'
       });
+    }
+  },
+
+  onNavTap(e) {
+    const action = e.detail.action;
+    if (action === 'home') {
+      wx.reLaunch({ url: '../sante/sante' });
+    } else if (action === 'emergency') {
+      wx.redirectTo({ url: '../urgence/urgence' });
     }
   }
 });

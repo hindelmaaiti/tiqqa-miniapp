@@ -2,7 +2,7 @@ Page({
   data: {
     statusBarHeight: 20,
     messageCount: 6,
-    currentStep: 1,
+    currentStep: 0,
     stepsData: [
       {
         id: 1,
@@ -39,6 +39,30 @@ Page({
         title: "Vous êtes admis à l’ hôpital",
         heroType: 'operator',
         message: "vous êtes maintenant pris en charge à l'hôpital el mansour"
+      },
+      {
+        id: 7,
+        title: "Demande prise en compte",
+        heroType: 'operator',
+        message: "votre demande de retour a été enregistrée. nous préparons votre transport."
+      },
+      {
+        id: 8,
+        title: "Arrivée d’ambulance de retour",
+        heroType: 'ambulance',
+        message: "votre ambulance est arrivée. nous vous raccompagnons en toute sécurité."
+      },
+      {
+        id: 9,
+        title: "Transport vers domicile",
+        heroType: 'ambulance',
+        message: "en route vers votre domicile. nous restons à vos côtés jusqu'à l'arrivée."
+      },
+      {
+        id: 10,
+        title: "Retour effectué",
+        heroType: 'operator',
+        message: "vous êtes bien arrivé chez vous. l'équipe Tiqqa vous souhaite un bon rétablissement."
       }
     ]
   },
@@ -57,18 +81,16 @@ Page({
   onStepTap: function(e) {
     const step = parseInt(e.currentTarget.dataset.step);
     
-    if (step === 6) {
-      this.setData({ currentStep: 6 });
-      setTimeout(() => {
-        wx.navigateTo({
-          url: '../urgence-paiement/urgence-paiement'
-        });
-      }, 800);
-    } else if (step > this.data.currentStep) {
-      this.setData({
-        currentStep: step
+    this.setData({
+      currentStep: step
+    });
+
+    // Redirection après un court délai pour laisser l'utilisateur voir le changement de couleur
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '../urgence-paiement/urgence-paiement'
       });
-    }
+    }, 800);
     
     if (wx.vibrateShort) wx.vibrateShort();
   },
@@ -80,5 +102,11 @@ Page({
     } else if (action === 'emergency') {
       wx.redirectTo({ url: '../urgence/urgence' });
     }
+  },
+
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
   }
 });

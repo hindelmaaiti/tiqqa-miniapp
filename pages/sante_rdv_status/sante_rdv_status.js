@@ -17,11 +17,25 @@ Page({
   onNext() {
     wx.showToast({ title: 'Fin du parcours', icon: 'none' });
   },
+  onModify() {
+    wx.navigateTo({ url: '/pages/sante_horaire/sante_horaire' });
+  },
+
+  onCancelRemboursement() {
+    wx.navigateTo({ url: '/pages/sante_recap/sante_recap' });
+  },
+
   onConfirm() {
     wx.showToast({ title: "RDV confirmé", icon: "success" });
   },
   onCancel() {
     wx.showToast({ title: "RDV annulé", icon: "none" });
+  },
+
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
   },
 
   onNavTap: defaultBottomNavTap

@@ -1,17 +1,19 @@
 <view class="container">
   <view class="shell">
-    <view class="header">
-      <view class="back-btn" bindtap="onBack">
-        <view class="back-icon-wrap">
-          <text class="arrow-text">←</text>
-        </view>
-        <text class="back-text">Retour</text>
+    <view class="horaire-header-wrap">
+      <view class="status-row">
+        <device-status-bar fillStatusBar="{{true}}" edgePadding="{{false}}" />
       </view>
-      <image src="/assets/logtiqqa.png" class="logo" mode="aspectFit"></image>
-      <view class="header-right" bindtap="onNext">
-        <view class="profile-bubble">
-          <image class="profile-img" src="/assets/profile.png"/>
-          <view class="speech-tail"></view>
+      <view class="top-bar top-bar--horaire">
+        <view class="back-wrap" bindtap="onBack">
+          <view class="back-circle">←</view>
+          <text class="back-text">Retour</text>
+        </view>
+        <image class="logo" src="/assets/logtiqqa.png" mode="aspectFit"></image>
+        <view class="avatar-bubble" bindtap="onProfileTap">
+          <view class="avatar-wrap avatar-wrap--bubble">
+            <image class="avatar" src="/assets/profile.png" mode="aspectFill"></image>
+          </view>
         </view>
       </view>
     </view>
@@ -53,6 +55,6 @@
 
     <button class="confirm-btn" bindtap="onConfirm">Confirmez le Rendez-vous</button>
 
-    <bottom-nav-bar variant="fixed" message-count="6" bind:navtap="onNavTap" />
+    <bottom-nav-bar active-tab="calendar" variant="fixed" message-count="6" bind:navtap="onNavTap" />
   </view>
 </view>

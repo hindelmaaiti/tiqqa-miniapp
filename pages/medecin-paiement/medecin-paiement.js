@@ -115,6 +115,12 @@ Page({
 
   onNavTap: defaultBottomNavTap,
 
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
+  },
+
   onHeroCta() {
     wx.showToast({ title: 'Accéder bientôt', icon: 'none' });
   },

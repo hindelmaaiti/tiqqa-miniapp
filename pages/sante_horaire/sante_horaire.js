@@ -47,5 +47,11 @@ Page({
   },
   onPrev() {
     wx.navigateTo({ url: '/pages/sante_calendar/sante_calendar' });
+  },
+
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
   }
 });

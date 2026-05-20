@@ -39,15 +39,14 @@ Page({
       });
       return;
     }
-    // Afficher le modal au lieu de naviguer directement
-    this.setData({ showModal: true });
+    wx.navigateTo({
+      url: '/pages/sante_recap/sante_recap'
+    });
   },
 
-  closeModal() {
-    this.setData({ showModal: false });
-    // Naviguer après avoir fermé le modal
+  onProfileTap: function() {
     wx.navigateTo({
-      url: '/pages/sante_rdv_status/sante_rdv_status'
+      url: '../profile/profile'
     });
   },
 

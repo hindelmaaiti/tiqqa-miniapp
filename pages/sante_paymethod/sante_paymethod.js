@@ -43,5 +43,11 @@ Page({
     wx.navigateTo({ url: '/pages/sante_location/sante_location' });
   },
 
+  onProfileTap: function() {
+    wx.navigateTo({
+      url: '../profile/profile'
+    });
+  },
+
   onNavTap: defaultBottomNavTap
 });
